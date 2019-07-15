@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,6 +19,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  static const _channel = MethodChannel("com.maeharin/sample");
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +31,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: <Widget>[
             RaisedButton(
-              child: Text("start"),
-              onPressed: () {
-                print("zaaaa");
+              child: Text("present ios view controller"),
+              onPressed: () async {
+                final String res = await _channel.invokeMethod("foo");
+              },
+            ),
+            InkWell(
+              child: Container(
+                color: Colors.red,
+                height: 600,
+              ),
+              onTap: () {
+                print("------------------");
+                print("flutter tapped!!!!");
+                print("------------------");
               },
             ),
           ],
