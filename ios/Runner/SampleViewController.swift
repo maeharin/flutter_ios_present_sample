@@ -52,11 +52,7 @@ class SampleViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("this is SampleViewController. next responder is : \(next)")
-        // responder chainの仕組み：
-        // https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/using_responders_and_the_responder_chain_to_handle_events
-        
-        print("SampleViewController touces Began!!!")
-        //super.touchesBegan(touches, with: event)
+        print("SampleViewController touchesBegan. next: \(next)")
+        super.touchesBegan(touches, with: event)
     }
 }

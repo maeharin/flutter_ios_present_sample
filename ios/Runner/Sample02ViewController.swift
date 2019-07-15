@@ -33,8 +33,8 @@ class Sample02ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("Sample02ViewController touces Began!!!")
-        //super.touchesBegan(touches, with: event)
+        print("Sample02ViewController touchesBegan. next: \(next)")
+        super.touchesBegan(touches, with: event)
     }
 
 }
