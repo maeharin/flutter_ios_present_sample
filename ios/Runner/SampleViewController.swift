@@ -26,9 +26,37 @@ class SampleViewController: UIViewController {
             closeButton.widthAnchor.constraint(equalToConstant: 100),
             closeButton.heightAnchor.constraint(equalToConstant: 50)
             ])
+        
+        let sample02Button = UIButton()
+        sample02Button.setTitle("sample02", for: .normal)
+        sample02Button.sizeToFit()
+        sample02Button.addTarget(self, action: #selector(onSample02ButtonTapped(sender:)), for: .touchUpInside)
+        view.addSubview(sample02Button)
+        print("sample02Button.next: \(sample02Button.next?.next)")
+        sample02Button.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            sample02Button.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            sample02Button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            sample02Button.widthAnchor.constraint(equalToConstant: 100),
+            sample02Button.heightAnchor.constraint(equalToConstant: 50)
+            ])
     }
     
     @objc func onCloseButtonTapped(sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func onSample02ButtonTapped(sender: UIButton) {
+        let sample02VC = Sample02ViewController()
+        present(sample02VC, animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("this is SampleViewController. next responder is : \(next)")
+        // responder chainの仕組み：
+        // https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/using_responders_and_the_responder_chain_to_handle_events
+        
+        print("SampleViewController touces Began!!!")
+        //super.touchesBegan(touches, with: event)
     }
 }
