@@ -14,6 +14,18 @@ class Sample02ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .green
         
+        let label = UILabel()
+        label.text = "Sample02ViewController（iOS側）"
+        label.textAlignment = NSTextAlignment.center
+        label.textColor = .white
+        label.sizeToFit()
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ])
+        
         let closeButton = UIButton()
         closeButton.setTitle("close", for: .normal)
         closeButton.sizeToFit()

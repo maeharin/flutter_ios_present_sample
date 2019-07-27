@@ -14,6 +14,18 @@ class SampleViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .blue
         
+        let label = UILabel()
+        label.text = "SampleViewController（iOS側）"
+        label.textAlignment = NSTextAlignment.center
+        label.textColor = .white
+        label.sizeToFit()
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ])
+        
         let closeButton = UIButton()
         closeButton.setTitle("close", for: .normal)
         closeButton.sizeToFit()
@@ -23,12 +35,10 @@ class SampleViewController: UIViewController {
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             closeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            closeButton.widthAnchor.constraint(equalToConstant: 100),
-            closeButton.heightAnchor.constraint(equalToConstant: 50)
             ])
         
         let sample02Button = UIButton()
-        sample02Button.setTitle("sample02", for: .normal)
+        sample02Button.setTitle("present Sample02ViewController", for: .normal)
         sample02Button.sizeToFit()
         sample02Button.addTarget(self, action: #selector(onSample02ButtonTapped(sender:)), for: .touchUpInside)
         view.addSubview(sample02Button)
@@ -37,8 +47,6 @@ class SampleViewController: UIViewController {
         NSLayoutConstraint.activate([
             sample02Button.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             sample02Button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            sample02Button.widthAnchor.constraint(equalToConstant: 100),
-            sample02Button.heightAnchor.constraint(equalToConstant: 50)
             ])
     }
     

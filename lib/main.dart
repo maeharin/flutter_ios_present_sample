@@ -42,9 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 600,
               ),
               onTap: () {
-                print("------------------");
-                print("flutter tapped!!!!");
-                print("------------------");
+                showDialog(
+                    context: context,
+                    builder: (context) =>
+                        AlertDialog(title: Text("flutter側！")));
               },
             ),
           ],
