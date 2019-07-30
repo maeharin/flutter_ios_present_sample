@@ -27,29 +27,26 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("sample"),
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            RaisedButton(
-              child: Text("present ios view controller"),
-              onPressed: () async {
-                final String res = await _channel.invokeMethod("foo");
-              },
-            ),
-            InkWell(
-              child: Container(
-                color: Colors.red,
-                height: 600,
+      body: InkWell(
+        child: Container(
+          color: Colors.red,
+          constraints: BoxConstraints.expand(),
+          child: Column(
+            children: <Widget>[
+              RaisedButton(
+                child: Text("present ios view controller"),
+                onPressed: () async {
+                  final String res = await _channel.invokeMethod("foo");
+                },
               ),
-              onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (context) =>
-                        AlertDialog(title: Text("flutter側！")));
-              },
-            ),
-          ],
+            ],
+          ),
         ),
+        onTap: () {
+          showDialog(
+              context: context,
+              builder: (context) => AlertDialog(title: Text("flutter event!")));
+        },
       ),
     );
   }
