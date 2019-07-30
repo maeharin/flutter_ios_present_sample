@@ -15,7 +15,7 @@ class SampleViewController: UIViewController {
         view.backgroundColor = .blue
         
         let label = UILabel()
-        label.text = "SampleViewController（iOS側）"
+        label.text = "SampleViewController（iOS）"
         label.textAlignment = NSTextAlignment.center
         label.textColor = .white
         label.sizeToFit()
